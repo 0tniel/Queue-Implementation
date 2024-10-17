@@ -1,77 +1,60 @@
-# Queue-Implementation
-# Queue Implementations
-
-This repository contains two implementations of a Queue:
-
-1. **Queue Implementation Using Array**
-2. **Queue Implementation Using C++ STL (Standard Template Library)**
-
-A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle, meaning the element inserted first will be the first to be removed. Queues are commonly used in many real-life applications like scheduling tasks, handling requests in web servers, or managing processes in operating systems.
-
-## Queue Implementations
-
-### 1. Queue Implementation Using Array
-
-#### Description:
-In this approach, a queue is manually implemented using an array. We maintain two pointers, `front` and `rear`, to keep track of the first and last elements in the queue, respectively. The queue supports the following operations:
-
-- **Enqueue**: Adds an element to the rear of the queue.
-- **Dequeue**: Removes the element from the front of the queue.
-- **Display**: Displays the elements currently in the queue.
-- **isFull and isEmpty**: Checks if the queue is full or empty.
-
-#### Algorithm:
-
-**Enqueue Operation:**
-1. Check if the queue is full by checking if `rear == capacity - 1`.
-2. If not full:
-   - Increment `rear`.
-   - Insert the new element at `arr[rear]`.
-3. If the queue is initially empty (`front == -1`), set `front = 0`.
-
-**Dequeue Operation:**
-1. Check if the queue is empty by checking if `front == -1` or `front > rear`.
-2. If not empty:
-   - Remove the element at `arr[front]` and increment `front`.
-3. If after removal, `front` exceeds `rear`, reset both `front` and `rear` to -1.
-
-**Display Operation:**
-1. Traverse the queue from `front` to `rear` and print each element.
-
-#### Time Complexity:
-- Enqueue: O(1)
-- Dequeue: O(1)
-- Display: O(n)
- <h3>2. Queue Implementation Using C++ STL</h3>
-
-  <h4>Description:</h4>
-    <p>This implementation utilizes the Standard Template Library (STL) in C++ to create a queue. The queue supports the following operations:</p>
-    <ul>
-        <li><strong>Enqueue</strong>: Adds an element to the rear of the queue.</li>
-        <li><strong>Dequeue</strong>: Removes the element from the front of the queue.</li>
-        <li><strong>Access Front and Rear</strong>: Allows access to the elements at the front and rear of the queue.</li>
-        <li><strong>Check If Queue is Empty</strong>: Checks if the queue has no elements.</li>
-    </ul>
-
-   <h4>Algorithm:</h4>
-    <h5>Enqueue Operation (push):</h5>
-    <p>Use <code>q.push(value)</code> to insert an element at the rear of the queue.</p>
-
-  <h5>Dequeue Operation (pop):</h5>
-    <p>Use <code>q.pop()</code> to remove the front element from the queue.</p>
-
-   <h5>Access Front and Rear:</h5>
-    <ul>
-        <li>Use <code>q.front()</code> to get the element at the front.</li>
-        <li>Use <code>q.back()</code> to get the element at the rear.</li>
-    </ul>
-
-   <h5>Check If Queue is Empty:</h5>
-    <p>Use <code>q.empty()</code> to check if the queue has no elements.</p>
-
-   <h4>Time Complexity:</h4>
-    <ul>
-        <li>Enqueue: O(1)</li>
-        <li>Dequeue: O(1)</li>
-        <li>Access front/back: O(1)</li>
-    </ul>
+<body>
+    <h1>Queue Implementations in C++</h1>
+    <h2>Aim</h2>
+    <p>
+        To implement and study two methods for handling queues in C++: one using a custom array-based approach and another using the C++ Standard Template Library (STL). This comparison highlights the differences between a manual implementation and the ready-made functionality provided by STL.
+    </p>
+    <h2>Algorithm</h2>
+    <h3>Array-Based Queue</h3>
+    <ol>
+        <li>Initialize the queue with a given capacity.</li>
+        <li>To <b>push</b> an element:
+            <ul>
+                <li>If the queue is full, print an overflow message.</li>
+                <li>If the queue is empty, set the front and rear pointers to 0.</li>
+                <li>Insert the element at the rear and increment the rear pointer.</li>
+            </ul>
+        </li>
+        <li>To <b>pop</b> an element:
+            <ul>
+                <li>If the queue is empty, print an underflow message.</li>
+                <li>Increment the front pointer to remove the front element.</li>
+                <li>If the queue becomes empty after popping, reset both front and rear pointers to -1.</li>
+            </ul>
+        </li>
+        <li>To <b>peek</b> the front element, return the element at the front pointer unless the queue is empty.</li>
+    </ol>
+    <h3>STL-Based Queue</h3>
+    <ol>
+        <li>Initialize an empty queue using the <code>std::queue</code> from C++ STL.</li>
+        <li>Use <code>push()</code> to insert elements into the queue.</li>
+        <li>Use <code>pop()</code> to remove the front element of the queue.</li>
+        <li>Use <code>front()</code> to get the front element without removing it.</li>
+    </ol>
+    <h2>Explanation</h2>
+    <h3>Array-Based Queue</h3>
+    <p>
+        This implementation manually handles all the core operations of a queue. The queue has a fixed capacity, and we manage the insertion (push), removal (pop), and retrieval (peek) of elements using array indices. While this approach gives more control over memory and performance, it requires more code and can be less efficient in terms of dynamic resizing and error handling.
+   <h3>STL-Based Queue</h3>
+    <ol>
+        <li>Initialize an empty queue using the <code>std::queue</code> from C++ STL.</li>
+        <li>To <b>push</b> an element:
+            <ul>
+                <li>Use <code>push()</code> to insert elements into the queue.</li>
+            </ul>
+        </li>
+        <li>To <b>pop</b> an element:
+            <ul>
+                <li>Use <code>pop()</code> to remove the front element of the queue.</li>
+            </ul>
+        </li>
+        <li>To <b>peek</b> the front element:
+            <ul>
+                <li>Use <code>front()</code> to get the front element without removing it.</li>
+            </ul>
+        </li>
+    </ol>
+    <h3>STL-Based Queue</h3>
+    <p>
+        The STL-based queue uses the C++ Standard Library to provide an efficient and straightforward implementation. It dynamically adjusts its size and offers built-in methods for pushing, popping, and accessing the front element. This implementation reduces code complexity and enhances flexibility in handling varying data sizes.
+    </p>
